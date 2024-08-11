@@ -1,15 +1,31 @@
-<div class="fixed top-0 z-50 right-0 left-0 bg-orange-500">
+<div class="fixed top-0 z-50 right-0 left-0 bg-orange-500 px-5 lg:px-20">
     <div class="flex h-16 items-center justify-between">
-        <div>
-            <img class="w-12 rounded-2xl" src="../../assets/logo.png" alt="StyleHive Ecommerce">
-        </div>
-        <div>
-            <div class="flex space-x-4">
-                <a routerLink="/" class="text-gray-800">StyleHive</a>
-                <div>
-                    <button (click)="openNavbarContent('men')" mat-button>Basic</button>
+        <div class="flex items-center">
+            <!-- logo -->
+            <div class="mr-5">
+                <img class="w-12 rounded-2xl" src="../../assets/logo.png" alt="StyleHive Ecommerce">
+            </div>
+            <!-- links -->
+            <div class="">
+                <div class="flex space-x-4">
+                    <a routerLink="/" class="text-gray-800">StyleHive</a>
+                    <div>
+                        <button (click)="openNavbarContent('women')" mat-button>Women</button>
+                    </div>
+                    <div>
+                        <button (click)="openNavbarContent('men')" mat-button>Men</button>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="flex items-center">
+            <button (click)="navigateTo('cart')" mat-icon-button>
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+            <button mat-raised-button type="" color="accent">
+                LOGIN
+            </button>
+            <button mat-raised-button>Basic</button>
         </div>
     </div>
 </div>
