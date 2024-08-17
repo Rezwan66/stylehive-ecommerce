@@ -7,8 +7,9 @@
             </div>
             <!-- links -->
             <div class="">
-                <div class="flex space-x-4">
-                    <a routerLink="/" class="text-gray-800">StyleHive</a>
+                <div class="flex items-center space-x-4">
+                    <a routerLink="/" class="text-white font-semibold text-lg tracking-widest">Style<span
+                            class="">Hive</span></a>
                     <div>
                         <button (click)="openNavbarContent('women')" mat-button>Women</button>
                     </div>
@@ -25,13 +26,13 @@
             <button (click)="navigateTo('cart')" mat-icon-button>
                 <mat-icon>shopping_cart</mat-icon>
             </button>
-            <button mat-raised-button type="" color="accent">
+            <button *ngIf="false" mat-raised-button type="" color="accent">
                 LOGIN
             </button>
-            <div class="ml-3 flex items-center">
+            <div *ngIf="true" class="relative ml-3 flex items-center">
                 <div class="flex items-center space-x-5">
-                    <span class="font-bold text-base">Shaikh</span>
-                    <button mat-button [matMenuTriggerFor]="profileMenu">
+                    <span class="font-bold text-lg">Shaikh</span>
+                    <button mat-icon-button [matMenuTriggerFor]="profileMenu">
                         <img class="w-8 h-8 rounded-full"
                             src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" alt="">
                     </button>
@@ -44,4 +45,8 @@
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIf="isNavbarContentOpen" class="modal-container">
+    <app-nav-content selectedSection="selectedSection" />
 </div>
