@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -21,6 +21,26 @@ import { NavContentComponent } from './nav-content/nav-content.component';
 export class NavbarComponent {
   currentSection: any;
   isNavbarContentOpen: any;
-  openNavbarContent(menu: any) {}
+  openNavbarContent(section: any) {
+    this.isNavbarContentOpen = true;
+    this.currentSection = section;
+  }
+  closeNavbarContent() {
+    this.isNavbarContentOpen = false;
+  }
   navigateTo(path: any) {}
+  @HostListener('document:click', [`$event`])
+  onDocumentClick(event: MouseEvent) {
+    const modalContainer = document.querySelector('.modal-container');
+    const openButtons = document.querySelectorAll('.open-button');
+    let clickInsideButton = false;
+    openButtons.forEach((button: Element) => {
+      if (button.contains(event.target as Node)) {
+        clickInsideButton = true;
+      }
+    });
+    if (modalContainer && !clickInsideButton && this.isNavbarContentOpen) {
+      this.closeNavbarContent();
+    }
+  }
 }
