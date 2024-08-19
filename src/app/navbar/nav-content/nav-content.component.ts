@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { navigation } from './nav-content';
 
 @Component({
   selector: 'app-nav-content',
@@ -11,4 +12,9 @@ import { Component, Input } from '@angular/core';
 export class NavContentComponent {
   category: any;
   @Input() selectedSection: any;
+
+  ngOnInit() {
+    this.category = navigation;
+    console.log('selected section', this.selectedSection);
+  }
 }
